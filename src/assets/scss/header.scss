@@ -1,0 +1,165 @@
+@import 'src/index.scss';
+
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2000;
+  width: 100%;
+  background-color: color(brown);
+  border-bottom: 1px solid rgba(white, .25);
+
+  .max-container {
+    @include max-container(relative, 0px, lg, 60px);
+    @include breakpoint(md) {
+      height: 70px;
+    }
+    @include breakpoint(xl) {
+      max-width: map-get($max-width, xl);
+      height: 80px;
+      margin: auto;
+    }
+    @include breakpoint(xxl) {
+      max-width: map-get($max-width, xxl);
+      height: 90px;
+      margin: auto;
+    }
+  }
+
+  #frame-2 {
+    @include padding(5px 20px);
+    @include breakpoint-xs(xxs) {
+      @include padding(5px 10px);
+    }
+    @include breakpoint(mid) {
+      @include padding(5px 25px);
+    }
+    @include breakpoint(sm) {
+      @include padding(5px 30px);
+    }
+    @include breakpoint(md) {
+      @include padding(5px 40px);
+    }
+    @include breakpoint(xl) {
+      @include padding(15px 80px);
+    }
+    @include breakpoint(xxl) {
+      @include padding(25px 0);
+    }
+
+    ul {
+      li {
+        float: left;
+      }
+      a {
+        color: color(white);
+        text-decoration: none;
+        @include breakpoint(lg) {
+          font-size: map-get($font-sizes, 18px);
+        }
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+      &.left {
+        text-align: left;
+        @include flex(flex, flex-start, start);
+
+        .logo {
+          padding-top: 6px;
+        }
+        .logo-clip {
+          width: 45.083px;
+          height: 56.25px;
+          @include breakpoint(md) {
+            width: 55.083px;
+            height: 66.25px;
+          }
+        }
+        .hidden {
+          @include visibility(none);
+          @include breakpoint(md) {
+            @include padding(40px 0 0 50px);
+            @include visibility(inline-block);
+          }
+          @include breakpoint(lg) {
+            @include padding(38px 0 0 50px);
+          }
+        }
+      }
+      &.right {
+        @include flex(flex, flex-end, end);
+        li.call {
+          padding-top: 16px;
+          @include breakpoint(md) {
+            padding-top: 26px;
+          }
+        }
+        li.email {
+          @include padding(16px 0 0 30px);
+          @include breakpoint(md) {
+            @include padding(26px 0 0 30px);
+          }
+        }
+        li.button {
+          @include visibility(none);
+          @include breakpoint(md) {
+            @include visibility(inline-block);
+            @include padding(10px 0 0 30px);
+          }
+          a.join-btn {
+            @include btn(4px, brown, white, white, xxs, 18px);
+            &:hover {
+              @include hover(white, brown, white);
+              opacity: 0.75;
+            }
+          }
+        }
+        li.menu {
+          @include padding(15px 0 0 25px);
+          @include breakpoint(md) {
+            @include padding(22px 0 0 20px);
+          }
+          @include breakpoint(lg) {
+            @include padding(22px 0 0 26px);
+          }
+          @include breakpoint(xl) {
+            padding-top: 20px;
+          }
+          img { width: 27px; height: 27px;
+          &:hover {  opacity: .5; }
+          }
+        }
+        .menu-clip {
+          width: 1.35em;
+          height: 1.35em;
+          @include breakpoint(md) {
+            width: 1.5em;
+            height: 1.5em;
+          }
+          @include breakpoint(xl) {
+            width: 1.75em;
+            height: 1.75em;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes up {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes down {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

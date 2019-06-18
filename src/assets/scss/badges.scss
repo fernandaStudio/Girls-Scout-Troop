@@ -1,0 +1,129 @@
+@import 'src/index.scss';
+
+section#badges {
+  &.container {
+    max-width: 90%;
+    position: relative;
+    top: 150px;
+    margin: auto;
+    padding-bottom: 150px;
+  }
+  .max-container {
+    @include max-container(relative, 0, lg, auto);
+    margin: auto;
+    @include breakpoint(xl) {
+    max-width: map-get($max-width, xl);
+    }
+    @include breakpoint(xxl) {
+    max-width: map-get($max-width, xxl);
+    }
+    &.visibility { visibility: hidden; }
+  }
+  #frame-2 {
+    a{text-decoration: none;}
+    padding-top: 20px;
+    @include breakpoint(lg) {
+      padding-bottom: 100px;
+    }
+    @include breakpoint(xl) {
+      @include padding(30px 70px 130px);
+    }
+    @include breakpoint(xxl) {
+      @include padding(50px 100px 150px);
+    }
+    .col-1.hidden {
+      text-align: center;
+      @include breakpoint(lg){
+        display: none;
+      }
+      .label {
+        position: relative;
+        top: -22px;
+        @include breakpoint(mid) {
+          top: -24px;
+        }
+        @include breakpoint(sm) {
+          top: -26px;
+        }
+        h3 {
+          background-color: color(white);
+          color: color(brown);
+          @include padding(0 6px);
+        }
+      }
+    }
+    .col-2 {
+      @extend %col-;
+      @include breakpoint(md) {
+        grid-column: span(spn-6);
+        width: col-width(col-2);
+        width: $calc;
+      }
+    }
+    .col-2.text {
+      padding-top: 0px;
+      padding-bottom: 60px;
+      @include breakpoint(md) {
+        padding-left: 35px;
+      }
+      @include breakpoint(xl) {
+        @include padding(0 10px 0 65px);
+      }
+      @include breakpoint(xxl) {
+        @include padding(25px 30px 0 95px);
+      }
+      .title {
+        display: none;
+        @include breakpoint(lg){
+          display:block;
+          padding-bottom: 20px;
+        }
+      }
+      .badge-img {
+        text-align: center;
+        @include breakpoint(md) {
+          text-align: left;
+         }
+         @include breakpoint-xs(xxs){
+           img { width: 80%; }
+         }
+       }
+      .list-title {
+        @include padding(35px 0 10px 0);
+        @include breakpoint(xxl){
+          padding-top: 80px;
+        }
+      }
+      .button {
+        padding: 50px 0 0 1px;
+        @include breakpoint(xxl){
+          padding: 80px 0 ;
+        }
+      }
+    }
+    .col-2.img {
+      background: no-repeat top center / contain
+      url("../../images/badgesEarned.jpg");
+      padding-bottom: 100%;
+      @include breakpoint(sm) {
+        background-size: contain;
+        padding-bottom: 78%;
+      }
+      @include breakpoint(md) {
+        background-size: 90%;
+        padding-bottom: 0%;
+      }
+      @include breakpoint(lg) {
+        background-position: center;
+      }
+      @include breakpoint(xl) {
+        background-size: contain;
+        background-position: bottom;
+      }
+      @include breakpoint(xxl) {
+        background-size: 80%;
+        background-position: middle;
+      }
+    }
+  }
+}

@@ -1,0 +1,162 @@
+@import 'src/index.scss';
+
+section#schedule {
+  &.container {
+    max-width: 100%;
+    position: relative;
+    top: 170px;
+    margin: auto;
+    padding-bottom: 150px;
+  }
+  .max-container {
+    @include max-container(relative, 0, lg, auto);
+    margin: auto;
+    @include breakpoint(xl) {
+    max-width: map-get($max-width, xl);
+    }
+    @include breakpoint(xxl) {
+    max-width: map-get($max-width, xxl);
+    }
+    &.visibility { visibility: hidden; }
+  }
+  #frame-1 {
+    a{text-decoration: none;}
+    grid-template-columns: repeat(1, 1fr);
+    @include padding(0 20px);
+    @include breakpoint-xs(xxs) {
+      @include padding(0 10px);
+    }
+    @include breakpoint(mid) {
+      @include padding(0 25px);
+    }
+    @include breakpoint(sm) {
+      @include padding(0 40px);
+    }
+    @include breakpoint(xl) {
+      @include padding(0 80px);
+    }
+    .question { text-align:center; display: block;}
+    a.qu-btn {
+      box-shadow: 3px 3px 10px grey;
+      @include btn(0, white, brown, brown, md, 16px);
+      @include breakpoint(md) {
+        padding: map-get($btn-padding, lg);
+        font-size: map-get($font-sizes, 18px);
+      }
+      @include breakpoint(xl) {
+        padding: map-get($btn-padding, xl);
+        font-size: map-get($font-sizes, 22px);
+      }
+      &:hover {
+        @include hover(white, rouge, rouge);
+      }
+      img.errow {
+        position: relative;
+        top: 2px;
+        left: 10px;
+      }
+    }
+  }
+  .col-1.hidden {
+    @include breakpoint(lg){
+      display: none;
+    }
+  }
+  .devider {
+    text-align: center;
+    hr {
+      border-color: color(brown);
+    }
+    .label {
+      position: relative;
+      top: -22px;
+      @include breakpoint(mid) {
+        top: -24px;
+      }
+      @include breakpoint(sm) {
+        top: -26px;
+      }
+      h3 {
+        background-color: color(white);
+        color: color(brown);
+        @include padding(0 6px);
+      }
+    }
+  }
+  .title {
+    display: none;
+    @include breakpoint(lg) {
+      display: block;
+    }
+  }
+
+  table {
+    width: 100%;
+    font-size: map-get($font-sizes, 14px);
+    padding-top: 15px;
+    padding-bottom: 50px;
+    @include breakpoint-xs(xxs) {
+      font-size: map-get($font-sizes, 10px);
+    }
+    @include breakpoint(lg){
+      font-size: map-get($font-sizes, 16px);
+      padding-top: 25px;
+      padding-bottom: 60px;
+    }
+    @include breakpoint(xl){
+      font-size: map-get($font-sizes, 18px);
+      padding-top: 30px;
+      padding-bottom: 80px;
+    }
+    .hidden {
+      display: none;
+      @include breakpoint(mid) {
+        display: table-cell;
+        vertical-align: bottom;
+      }
+    }
+
+    tr td {
+      vertical-align: bottom;
+    }
+    thead tr {
+      color: color(rouge);
+      font-weight: bold;
+      td {
+        padding: 0;
+        @include breakpoint(lg){
+          &.date { width:150px; }
+          &.location { width: 200px; }
+          &.time { width: 150px; }
+          &.snack { width: 150px; }
+        }
+        @include breakpoint(xl){
+          &.location { width: 250px; }
+        }
+      }
+    }
+    tbody tr {
+      color: color(dgrey);
+      background-color: color(grey);
+      box-shadow: 1px 1px 1px lightgrey;
+      height: 50px;
+      @include breakpoint-xs(xxs) {
+        height: 40px;
+      }
+      @include breakpoint (lg) {
+        height: 60px;
+      }
+      @include breakpoint (xl) {
+        height: 70px;
+      }
+      @include breakpoint (xxl) {
+        height: 80px;
+      }
+
+      .empty { background-color: color(rouge); width: 5px;}
+      td {
+        padding: 3px;
+      }
+    }
+  }
+}

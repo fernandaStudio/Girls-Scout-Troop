@@ -1,0 +1,136 @@
+@import 'src/index.scss';
+
+section#impt-links {
+  .max-container {
+    @include max-container(relative, 100px, lg, auto);
+    margin: auto;
+    @include breakpoint(xl) {
+      max-width: map-get($max-width, xl);
+    }
+    @include breakpoint(xxl) {
+      max-width: map-get($max-width, xxl);
+    }
+    &.visibility { visibility: hidden; }
+  }
+  padding-bottom: 100px;
+  #frame-3 {
+    @include padding(40px 20px);
+    @include breakpoint-xs(xxs) {
+      @include padding(40px 10px);
+    }
+    @include breakpoint(mid) {
+      @include padding(40px 25px);
+    }
+    @include breakpoint(sm) {
+      @include padding(40px 30px);
+    }
+    @include breakpoint(md) {
+      @include padding(40px 40px);
+    }
+    @include breakpoint(xl) {
+      @include padding(40px 80px);
+    }
+    .devider {
+      text-align: center;
+      hr {
+        border-color: color(brown);
+      }
+      .label {
+        position: relative;
+        top: -22px;
+        @include breakpoint(mid) {
+          top: -24px;
+        }
+        @include breakpoint(sm) {
+          top: -26px;
+        }
+        h3 {
+          background-color: color(white);
+          color: color(brown);
+          @include padding(0 6px);
+        }
+      }
+      @include breakpoint(md) {
+        padding-bottom: 30px;
+      }
+    }
+    .col-3 {
+      a { display: block; }
+      text-align: center;
+      padding-bottom: 80px;
+      @include breakpoint-xs(xxs) {
+        padding-bottom: 55px;
+      }
+      @include breakpoint(mid) {
+        padding-bottom: 120px;
+      }
+      &.gsema {
+        padding-bottom: 75px;
+        @include breakpoint-xs(xxs) {
+          padding-bottom: 50px;
+        }
+        @include breakpoint(mid) {
+          padding-bottom: 115px;
+        }
+      }
+      a.gsema-logo {
+        width: 100%;
+        background: no-repeat top center / contain
+          url("../../images/gsema.jpg");
+        padding-bottom: 48%;
+        @include breakpoint-xs(xxs) {
+          padding-bottom: 50%;
+        }
+        @media (min-width: 414px) and (max-width: 568px) {
+          padding-bottom: 40%;
+        }
+        @include breakpoint(sm) {
+          padding-bottom: 55%;
+        }
+        @include breakpoint(lg) {
+          padding-bottom: 50%;
+        }
+        @include breakpoint(xxl) {
+          background-position: top center;
+        }
+        &:hover {
+          opacity: 0.75;
+        }
+      }
+      a.shop-logo {
+        width: 100%;
+        margin: auto;
+        background: no-repeat center / contain
+          url("../../images/gs_store.jpg");
+        padding-bottom: 30%;
+        @media (min-width: 414px) and (max-width: 568px) {
+          padding-bottom: 25%;
+        }
+        @include breakpoint(lg) {
+          width: 90%;
+        }
+        &:hover {
+          opacity: 0.75;
+        }
+      }
+      a.cookies-logo {
+        width: 100%;
+        background: no-repeat top center / contain
+          url("../../images/cookies.jpg");
+        padding-bottom: 60%;
+        @media (min-width: 414px) and (max-width: 568px) {
+          padding-bottom: 50%;
+        }
+        @include breakpoint(lg) {
+          padding-bottom: 55%;
+        }
+        @include breakpoint(xxl) {
+          background-position: top center;
+        }
+        &:hover {
+          opacity: 0.75;
+        }
+      }
+    }
+  }
+}

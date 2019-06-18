@@ -1,0 +1,425 @@
+$breakpoints: (
+  xxs:300px,
+  xs: 320px,
+  mid: 411px,
+  sm: 576px,
+  md: 768px,
+  lg: 900px,
+  xl: 1280px,
+  xxl:1920px
+);
+
+$colors: (
+  white: #ffffff,
+  black: #000000,
+  brown: #4d3219,
+  green: #00a850,
+  blue: #0077c8,
+  aqua: #36d4ed,
+  rouge: #ff5a5a,
+  grey: #434343
+);
+
+$font-sizes: (
+  12px: 0.75em,
+  14px: 0.875em,
+  16px: 1em,
+  18px: 1.125em,
+  20px: 1.25em,
+  22px: 1.375em,
+  24px: 1.5em,
+  26px: 1.625em,
+  28px: 1.75em,
+  32px: 2em,
+  36px: 2.25em,
+  40px: 2.5em,
+  44px: 2.75em,
+  48px: 3em
+);
+
+$calc: calc(100% / (var(--aspect-ratio)));
+$max-width: (
+  lg: 100%,
+  xl: 1280px,
+  xxl: 1600px
+);
+
+$percentages: (
+  "col-1": 100%,
+  "col-2": 50%,
+  "col-3": 33.3%,
+  "col-4": 25%,
+  "col-5": 20%,
+  "col-6": 16.666666667%,
+  "col-7": 14.2857142857%,
+  "col-8": 12.5%,
+  "col-9": 11.111111111%,
+  "col-10": 10%,
+  "col-11": 9.090909091%,
+  "col-12": 8.33%
+);
+
+$span: (
+  spn-1: span 1,
+  spn-2: span 2,
+  spn-3: span 3,
+  spn-4: span 4,
+  spn-5: span 5,
+  spn-6: span 6,
+  spn-7: span 7,
+  spn-8: span 8,
+  spn-9: span 9,
+  spn-10: span 10,
+  spn-11: span 11,
+  spn-12: span 12
+);
+
+$btn-padding: (
+  xxs: 12px 10px,
+  xs: 12px,
+  sm: 15px,
+  md: 10px 25px,
+  lg: 15px 35px,
+  xl: 25px
+);
+
+$typography-sm: (
+  main: (size: 1em, line-height: 1.6em),
+  heading-1: (size: 2em, line-height: 1.25em),
+  heading-2: (size: 1.625em, line-height: 1.15384615em),
+  heading-3: (size: 1.375em, line-height: 1.136363645em),
+  heading-4: (size: 1.125em, line-height: 1.11111111em),
+  blockquote: (size: 1.25em, line-height: 1.25em)
+);
+
+$typography-md: (
+  main: (size: 1em, line-height: 1.65em),
+  heading-1: (size: 2.5em, line-height: 1.125em),
+  heading-2: (size: 2em, line-height: 1.25em),
+  heading-3: (size: 1.5em, line-height: 1.25em),
+  heading-4: (size: 1.25em, line-height: 1.22222222em),
+  blockquote: (size: 1.5em, line-height: 1.4583333em)
+);
+
+$typography-lg: (
+  main:      (size: 1em, line-height: 1.6875em),
+  heading-1: (size: 3em, line-height: 1.05em),
+  heading-2: (size: 2.25em, line-height: 1.25em),
+  heading-3: (size: 1.75em, line-height: 1.25em)
+);
+
+$typography-xl: (
+  main:      (size: 1.125em, line-height: 1.75em),
+  heading-1: (size: 3.375em, line-height: 1.05em),
+  heading-2: (size: 2.75em, line-height: 1.25em),
+  heading-3: (size: 2.25em, line-height: 1.25em)
+);
+
+@mixin breakpoint-xs($breakpoint) {
+  @media (max-width: #{map-get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+@mixin breakpoint($breakpoint) {
+  @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+@mixin typography-sm($key) {
+  font-size: map-get(map-get($typography-sm, $key), size);
+  line-height: map-get(map-get($typography-sm, $key), line-height);
+  color: map-get(map-get($typography-sm, $key), color);
+}
+
+@mixin typography-md($key) {
+  font-size: map-get(map-get($typography-md, $key), size);
+  line-height: map-get(map-get($typography-md, $key), line-height);
+  color: map-get(map-get($typography-md, $key), color);
+}
+
+@mixin typography-lg($key) {
+  font-size: map-get(map-get($typography-lg, $key), size);
+  line-height: map-get(map-get($typography-lg, $key), line-height);
+  color: map-get(map-get($typography-lg, $key), color);
+}
+
+@mixin typography-xl($key) {
+  font-size: map-get(map-get($typography-xl, $key), size);
+  line-height: map-get(map-get($typography-xl, $key), line-height);
+  color: map-get(map-get($typography-xl, $key), color);
+}
+
+@mixin box-sizing($box-model) {
+  box-sizing: $box-model;
+  -moz-box-sizing: $box-model;
+  -webkit-box-sizing: $box-model;
+}
+
+@mixin clearfix($display) {
+  &:after {
+    display: $display;
+    content: "";
+    clear: both;
+  }
+}
+
+@mixin col-config($float: left, $display: inline) {
+  float: $float;
+  display: $display;
+}
+
+@mixin grid-columns($gap, $display, $columns) {
+  display: $display;
+  grid-template-columns: $columns;
+  @if $gap > 0 {
+    grid-column-gap: $gap;
+  }
+  // display: -ms-#{$display};
+  // -ms-grid-columns: $columns;
+}
+
+@mixin max-container($position, $top, $w, $h) {
+  position: $position;
+  top: $top;
+  max-width: map-get($max-width, $w);
+  height: $h;
+}
+
+@mixin flex($display, $justify, $ms-justify) {
+  display: -ms-flexbox;
+  display: -webkit-$display;
+  display: -moz-$display;
+  display: -ms-$display;
+  display: $display;
+  -webkit-justify-content: $justify;
+  -moz-justify-content: $justify;
+  -ms-justify-content: $justify;
+  justify-content: $justify;
+  -ms-flex-pack: $ms-justify;
+}
+
+@mixin visibility($display) {
+  display: $display !important;
+}
+
+@mixin padding($paddings...) {
+  padding: $paddings;
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -o-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+@mixin btn ($border-radius,$text, $bgcolor, $border, $padding, $size) {
+  color: map-get($colors, $text);
+  background-color: map-get($colors, $bgcolor);
+  border: 1px solid map-get($colors, $border);
+  padding: map-get($btn-padding, $padding);
+  font-size: map-get($font-sizes, $size);
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  @if $border-radius > 0 {
+    border-radius: $border-radius;
+  }
+}
+
+@mixin hover($text, $bgcolor, $border) {
+  color: map-get($colors, $text);
+  background-color: map-get($colors, $bgcolor);
+  border: 1px solid map-get($colors, $border);
+}
+
+@mixin link($size, $color, $deco) {
+  font-size: map-get($font-sizes, $size);
+  color: map-get($colors, $color);
+  text-decoration: $deco;
+}
+
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+@function col-width($width) {
+  @return map-get($percentages, $width);
+}
+
+@function span($key) {
+  @return map-get($span, $key);
+}
+
+%doc-defaults {
+  font-family: "Nunito", sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+%grid-config {
+  :root {
+    --aspect-ratio: 1/1;
+  }
+  *,
+  *:before,
+  *:after {
+    @include box-sizing(border-box);
+  }
+}
+
+%frame-config {
+  width: 100%;
+  @include clearfix(table);
+  @include grid-columns(0, grid, repeat(12, 1fr));
+}
+
+%col- {
+  @include col-config;
+  grid-column: span(spn-12);
+  width: col-width(col-1);
+  width: $calc;
+}
+
+%col-2 {
+  grid-column: span(spn-6);
+  width: col-width(col-2);
+  width: $calc;
+}
+
+%col-3 {
+  @include breakpoint(sm) {
+    grid-column: span(spn-4);
+    width: col-width(col-3);
+    width: $calc;
+  }
+}
+
+%col-4 {
+  @include breakpoint(sm) {
+    grid-column: span(spn-3);
+    width: col-width(col-4);
+    width: $calc;
+  }
+}
+
+%col-5 {
+  grid-column: span(spn-6);
+  width: col-width(col-2);
+  width: $calc;
+  @include breakpoint(md) {
+    grid-column: span(spn-1);
+    width: col-width(col-5);
+    width: $calc;
+  }
+}
+
+%col-6 {
+  @include breakpoint(sm) {
+    grid-column: span(spn-2);
+    width: col-width(col-6);
+    width: $calc;
+  }
+}
+
+html,
+body,
+ul,
+li,
+img {
+  @extend %doc-defaults;
+}
+body {
+  @extend %grid-config;
+}
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  display: inline;
+  letter-spacing: 0;
+  color: color(brown);
+}
+h1 {
+  @include typography-sm(heading-1);
+  @include breakpoint(md) {
+    @include typography-md(heading-1);
+  }
+  @include breakpoint(xl) {
+    @include typography-lg(heading-1);
+  }
+}
+h2 {
+  @include typography-sm(heading-2);
+  @include breakpoint(md) {
+    @include typography-md(heading-2);
+  }
+  @include breakpoint(xl) {
+    @include typography-lg(heading-2);
+  }
+}
+h3 {
+  @include typography-sm(heading-3);
+  @include breakpoint(mid) {
+    @include typography-md(heading-3);
+  }
+  @include breakpoint(lg) {
+    @include typography-lg(heading-3);
+  }
+}
+h4 {
+  @include typography-sm(heading-4);
+  @include breakpoint(md) {
+    @include typography-md(heading-4);
+  }
+}
+p {
+  @include typography-sm(main);
+  color: color(brown);
+  display: inline;
+  margin: 0;
+  @include breakpoint(xl) {
+    @include typography-xl(main);
+  }
+}
+a[class$="-btn"] {
+  box-sizing: border-box;
+  display: inline-block;
+  max-width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+ul {
+  list-style-type: none;
+  display: inline-block;
+}
+[id*="frame-"] {
+  @extend %frame-config;
+}
+[id*="frame-"] [class*="col-"] {
+  @extend %col-;
+}
+[id*="frame-"] .col-2 {
+  @extend %col-2;
+}
+[id*="frame-"] .col-3 {
+  @extend %col-3;
+}
+#frame-5 {
+  @include breakpoint(md) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+[id*="frame-"] .col-5 {
+  @extend %col-5;
+}
+@import 'Header';

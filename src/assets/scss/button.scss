@@ -1,0 +1,18 @@
+@import 'src/index.scss';
+
+span[class$='-button'] {
+  box-shadow: 3px 3px 10px grey;
+  @include btn(0, white, brown, brown, md, 16px);
+  @include breakpoint(md) {
+    padding: map-get($btn-padding, lg);
+    font-size: map-get($font-sizes, 18px);
+  }
+  &:hover {
+    @include hover(white, rouge, rouge);
+  }
+  img.errow {
+    position: relative;
+    top: 2px;
+    left: 10px;
+  }
+}

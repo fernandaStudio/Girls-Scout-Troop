@@ -1,0 +1,129 @@
+@import 'src/index.scss';
+
+footer {position: relative;
+  z-index: 3000;
+  width: 100%;
+  background-color: color(brown);
+  .max-container {
+    @include max-container(relative, 0px, lg, auto);
+    margin: auto;
+    @include breakpoint(xl) {
+      max-width: map-get($max-width, xl);
+    }
+    @include breakpoint(xxl) {
+      max-width: map-get($max-width, xxl);
+    }
+    &.visibility { display: none; }
+  }
+
+  .nav-footer {
+    .col-5 {
+      @include breakpoint(md){
+        grid-column: span(spn-2);
+        width: col-width(col-2);
+        width: $calc;
+      }
+      @include breakpoint(lg){
+        grid-column: span(spn-1);
+        width: col-width(col-5);
+        width: $calc;
+        }
+      }
+    a { text-decoration: none; }
+    h4 { color: color(white);
+      &:hover { opacity: .5; }
+    }
+    p {
+      @include breakpoint-xs(xxs) {
+        font-size: map-get($font-sizes, 12px);
+      }
+      color: color(white);
+      opacity: .65;
+      &:hover { opacity: 1; }
+    }
+    @include padding(40px 20px);
+    @include breakpoint-xs(xxs) {
+      @include padding(40px 10px);
+    }
+    @include breakpoint(mid) {
+      @include padding(40px 25px);
+    }
+    @include breakpoint(sm) {
+      @include padding(40px 30px);
+    }
+    @include breakpoint(md) {
+      @include padding(40px 40px);
+    }
+    @include breakpoint(lg) {
+      @include padding(40px 0px 40px 60px);
+    }
+    @include breakpoint(xl) {
+      @include padding(40px 0px 40px 100px);
+    }
+
+    ul {
+      padding-bottom: 45px;
+      @include breakpoint(md) {
+        padding-right: 10px;
+      }
+      li {
+        padding-bottom: 5px;
+        @include breakpoint-xs(xxs){
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+  .post-footer {
+    @include padding(0px 20px 20px);
+    @include breakpoint-xs(xxs) {
+      @include padding(0px 10px 20px);
+    }
+    @include breakpoint(sm) {
+      @include padding(0px 25px 20px);
+    }
+    @include breakpoint(md) {
+      @include padding(0px 40px 20px);
+    }
+    @include breakpoint(xl) {
+      @include padding(0px 80px 20px);
+      margin: auto;
+    }
+    .logo-container {
+      .brownie-logo {
+        display: block;
+        width: 200px;
+        height: 200px;
+        margin: auto;
+        background: no-repeat top center / 75%
+          url("../../images/troop-logo.jpg");
+        &:hover { opacity: .5; }
+      }
+    }
+    hr {
+      height: 1px;
+      opacity: 0.5;
+      margin: 0 auto;
+    }
+    p {
+      font-size: map-get($font-sizes, 12px);
+      padding-top: 8px;
+      color: color(white);
+      opacity: 0.75;
+      @include flex(flex, flex-end, end);
+    }
+    ul {
+      li {
+        float: left;
+        padding-right: 20px;
+      }
+      a {
+        @include link(14px, white, none);
+        &:hover { opacity: .5; }
+        @include breakpoint-xs(xxs) {
+          font-size: map-get($font-sizes, 12px);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@import 'src/index.scss';
+
+div.mobile {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  @include breakpoint-xs(xxs) {
+    right: 10px;
+  }
+  a.join-btn {
+    box-shadow: 3px 3px 10px grey;
+    @include btn(0px, white, brown, brown, xxs, 16px);
+    &:hover {
+      @include hover(white, rouge, rouge);
+      opacity: 1;
+    }
+    @include breakpoint-xs(xxs) {
+      right: 10px;
+    }
+    @include breakpoint(md) {
+      @include visibility(none);
+    }
+  }
+}

@@ -1,0 +1,237 @@
+@import 'src/index.scss';
+
+section#about {
+  .max-container {
+    @include max-container(relative, 100px, lg, auto);
+    margin: auto;
+    @include breakpoint(xl) {
+      max-width: map-get($max-width, xl);
+    }
+    @include breakpoint(xxl) {
+      max-width: map-get($max-width, xxl);
+    }
+    &.visibility { visibility: hidden; }
+  }
+
+  #frame-2 {
+    a{text-decoration: none;}
+    @include padding(40px 20px);
+    @include breakpoint-xs(xxs) {
+      @include padding(40px 10px);
+    }
+    @include breakpoint(mid) {
+      @include padding(100px 25px);
+    }
+    @include breakpoint(sm) {
+      @include padding(100px 30px);
+    }
+    @include breakpoint(md) {
+      @include padding(100px 40px);
+    }
+    @include breakpoint(lg) {
+      @include padding(0 40px 20px);
+    }
+    @include breakpoint(xl) {
+      @include padding(0 80px 20px);
+    }
+    ul {
+      width: 95%;
+      @include breakpoint-xs(xxs) {
+        width: 100%;
+      }
+      li:nth-child(3) {
+        padding-top: 30px;
+      }
+      li:nth-last-child(-n + 4) {
+        padding-bottom: 30px;
+      }
+      @include breakpoint(mid) {
+        li:nth-last-child(-n + 4) {
+        padding-bottom: 40px;
+      }
+      }
+      @include breakpoint(lg) {
+        padding-left: 60px;
+      }
+      @include breakpoint(xl) {
+        width: 100%;
+        padding-left: 40px;
+        li:first-child {
+           padding-bottom: 5px;
+         }
+      }
+      // @include breakpoint(xxl) {
+      //   padding-left: 100px;
+      // }
+    }
+    .devider {
+      text-align: center;
+      hr {
+        border-color: color(brown);
+      }
+      .label {
+        position: relative;
+        top: -22px;
+        @include breakpoint(mid) {
+          top: -24px;
+        }
+        @include breakpoint(sm) {
+          top: -26px;
+        }
+        h3 {
+          background-color: color(white);
+          color: color(brown);
+          @include padding(0 6px);
+        }
+      }
+      .about-bg {
+        position: relative;
+        top: -20px;
+        background: no-repeat top center / contain
+          url("../../images/brownies.jpg");
+        padding-bottom: 80px;
+        width: 100%;
+        @include breakpoint-xs(xxs) {
+          padding-bottom: 60px;
+        }
+        @include breakpoint(lg) {
+          padding-bottom: 90px;
+        }
+        @include breakpoint(xl) {
+          padding-bottom: 100px;
+        }
+      }
+    }
+    .col-2 {
+      @include breakpoint-xs(lg) {
+        grid-column: span(spn-12);
+        width: col-width(col-1);
+        width: $calc;
+      }
+    }
+    .text {
+      @include padding(30px 0 20px);
+      @include breakpoint-xs(xxs) {
+        @include padding(20px 0 0px);
+      }
+      @include breakpoint(lg) {
+        padding-top: 50px;
+      }
+      .link {
+        @include link(16px, brown, underline);
+        font-weight: 700;
+        &:hover {
+          color: color(rouge);
+        }
+      }
+      .leaders {
+        @include padding(50px 0 15px 0);
+        @include breakpoint(md) {
+          @include padding(80px 0 20px 0);
+        }
+      }
+      .e-link {
+        @include link(14px, rouge, underline);
+        &:hover { opacity: .65; }
+      }
+      .button {
+        @include padding(20px 0);
+        @include breakpoint(mid) {
+          padding-bottom: 40px;
+        }
+        a.volunteer-btn {
+          box-shadow: 3px 3px 10px grey;
+          @include btn(0, white, brown, brown, md, 16px);
+          @include breakpoint(md) {
+            padding: map-get($btn-padding, lg);
+            font-size: map-get($font-sizes, 18px);
+          }
+          &:hover {
+            @include hover(white, rouge, rouge);
+          }
+          img.errow {
+            position: relative;
+            top: 2px;
+            left: 10px;
+          }
+        }
+      }
+    }
+    .hidden {
+      @include breakpoint-xs(xxs) {
+        display: none;
+      }
+      @include padding(40px 0px);
+      @include breakpoint(sm) {
+        padding-bottom: 0;
+      }
+
+      .crest {
+      width: 100%;
+      margin: auto;
+      background: no-repeat top center / contain
+        url("../../images/crest.jpg");
+      padding-bottom: 40%;
+        z-index: 1;
+        @include breakpoint(mid) {
+          width: 95%;
+        }
+        @include breakpoint(sm) {
+          width: 45%;
+          position: absolute;
+          bottom: 65px;
+          right: 30px;
+        }
+        @include breakpoint(md) {
+          bottom: 20px;
+          right: 50px;
+        }
+        @include breakpoint(lg) {
+          position: relative;
+          top: 0;
+          left: 0;
+          width: 70%;
+        }
+        @include breakpoint(xl) {
+          left: 75px;
+          width: 70%;
+        }
+        @include breakpoint(xxl) {
+          left: 75px;
+          width: 65%;
+        }
+
+      .crest-float {
+        display: inline-block;
+        text-align: center;
+        @include padding(35% 30% 0);
+        @include breakpoint(mid) {
+          @include padding(40% 30% 0);
+        }
+        a {
+          text-decoration: none;
+          opacity: 1;
+          &:hover {
+            opacity: .75;
+          }
+        }
+        p {
+          line-height: 0;
+          letter-spacing: 0px;
+          font-size: map_get($font-sizes, 14px);
+          @include breakpoint(mid) {
+            @include typography-sm(main);
+          }
+          @include breakpoint(sm) {
+            font-size: map-get($font-sizes, 12px);
+            line-height: 0;
+          }
+          @include breakpoint(md) {
+            @include typography-sm(main);
+          }
+        }
+      }
+      }
+    }
+  }
+}
